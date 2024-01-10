@@ -17,7 +17,9 @@ score0.textContent = 0;
 score1.textContent = 0;
 dice.classList.add('hidden');
 
+const scores = [0, 0];
 let currentScore = 0;
+let activePlayer = 0;
 
 //Rolling dice functionality
 btnRoll.addEventListener('click', function () {
@@ -29,9 +31,9 @@ btnRoll.addEventListener('click', function () {
 
   if (num !== 1) {
     currentScore += num;
-    currScore0.textContent = currentScore; //change later
+    document.getElementById(`current--${activePlayer}`).textContent =
+      currentScore;
   } else {
-    currentScore = 0;
-    currScore0.textContent = currentScore;
+    activePlayer = activePlayer === 0 ? 1 : 0;
   }
 });
