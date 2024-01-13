@@ -95,5 +95,7 @@ btnNew.addEventListener('click', function () {
   score0.textContent = 0;
   score1.textContent = 0;
 
+  player1.classList.remove('player--active');
+  player0.classList.add('player--active');
   activePlayer = 0;
 });
