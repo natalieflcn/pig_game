@@ -66,9 +66,34 @@ btnHold.addEventListener('click', function () {
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.remove('player--active');
-      dice.classList.remove('hidden');
+      dice.classList.add('hidden');
     } else {
       switchPlayer();
     }
   }
+});
+
+//Restarting the Game
+btnNew.addEventListener('click', function () {
+  if (!playing) {
+    //If the game was won
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.remove('player--winner');
+    dice.classList.remove('hidden');
+    playing = true;
+  }
+
+  //resetting current scores
+  currentScore = 0;
+  currScore0.textContent = 0;
+  currScore1.textContent = 0;
+
+  //resetting cumulative scores
+  scores[0] = 0;
+  scores[1] = 0;
+  score0.textContent = 0;
+  score1.textContent = 0;
+
+  activePlayer = 0;
 });
